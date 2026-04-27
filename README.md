@@ -1,6 +1,6 @@
 # caelestia
 
-This is the main repo of the caelestia dots and contains the user configs for
+This is a custom fork of the caelestia dots and contains the user configs for
 apps. This repo also includes an install script to install the entire dots.
 
 ## Installation
@@ -34,7 +34,7 @@ options:
 For example:
 
 ```sh
-git clone https://github.com/caelestia-dots/caelestia.git ~/.local/share/caelestia
+git clone https://github.com/axioncs/caelestia.git ~/.local/share/caelestia
 ~/.local/share/caelestia/install.fish
 ```
 
@@ -42,27 +42,27 @@ git clone https://github.com/caelestia-dots/caelestia.git ~/.local/share/caelest
 
 Dependencies:
 
--   hyprland
--   xdg-desktop-portal-hyprland
--   xdg-desktop-portal-gtk
--   hyprpicker
--   wl-clipboard
--   cliphist
--   inotify-tools
--   app2unit
--   wireplumber
--   trash-cli
--   foot
--   fish
--   fastfetch
--   starship
--   btop
--   jq
--   eza
--   adw-gtk-theme
--   papirus-icon-theme
--   qtengine-git
--   ttf-jetbrains-mono-nerd
+- hyprland
+- xdg-desktop-portal-hyprland
+- xdg-desktop-portal-gtk
+- hyprpicker
+- wl-clipboard
+- cliphist
+- inotify-tools
+- app2unit
+- wireplumber
+- trash-cli
+- foot
+- fish
+- fastfetch
+- starship
+- btop
+- jq
+- eza
+- adw-gtk-theme
+- papirus-icon-theme
+- qtengine-git
+- ttf-jetbrains-mono-nerd
 
 Install all dependencies and follow the installation guides of the
 [shell](https://github.com/caelestia-dots/shell) and [cli](https://github.com/caelestia-dots/cli)
@@ -131,13 +131,13 @@ There aren't really any usage instructions... these are a set of dotfiles.
 
 Here's a list of useful keybinds though:
 
--   `Super` - open launcher
--   `Super` + `#` - switch to workspace `#`
--   `Super` `Alt` + `#` - move window to workspace `#`
--   `Super` + `T` - open terminal (foot)
--   `Super` + `W` - open browser (zen)
--   `Super` + `C` - open IDE (vscodium)
--   `Super` + `S` - toggle special workspace or close current special workspace
--   `Ctrl` `Alt` + `Delete` - open session menu
--   `Ctrl` `Super` + `Space` - toggle media play state
--   `Ctrl` `Super` `Alt` + `R` - restart the shell
+- `Super` - open launcher
+- `Super` + `#` - switch to workspace `#`
+- `Super` `Alt` + `#` - move window to workspace `#`
+- `Super` + `T` - open terminal (foot)
+- `Super` + `W` - open browser (zen)
+- `Super` + `C` - open IDE (vscodium)
+- `Super` + `S` - toggle special workspace or close current special workspace
+- `Ctrl` `Alt` + `Delete` - open session menu
+- `Ctrl` `Super` + `Space` - toggle media play state
+- `Ctrl` `Super` `Alt` + `R` - restart the shell

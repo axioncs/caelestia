@@ -1,15 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
-<action>
-	<icon>utilities-terminal</icon>
-	<name>Open Terminal Here</name>
-	<submenu></submenu>
-	<unique-id>1710575157271461-1</unique-id>
-	<command>foot -D %f</command>
-	<description>Open the current directory in foot</description>
-	<range></range>
-	<patterns>*</patterns>
-	<startup-notify/>
-	<directories/>
-</action>
+    <action>
+        <icon>utilities-terminal</icon>
+        <name>Open Terminal Here</name>
+        <unique-id>1710575157271461-1</unique-id>
+        <command>kitty</command>
+        <description>Open kitty in current directory</description>
+        <range></range>
+        <patterns>*</patterns>
+        <startup-notify/>
+        <directories/>
+    </action>
+    <action>
+        <icon>vscodium</icon>
+        <name>Open in VSCodium</name>
+        <unique-id>1710575157271461-2</unique-id>
+        <command>codium %f</command>
+        <description>Open selected file or folder in VSCodium</description>
+        <range></range>
+        <patterns>*</patterns>
+        <startup-notify/>
+        <directories/>
+        <other-files/>
+    </action>
+    <action>
+        <icon>edit-copy</icon>
+        <name>Copy Path</name>
+        <unique-id>1710575157271461-3</unique-id>
+        <command>sh -c "echo -n %f | wl-copy"</command>
+        <description>Copy absolute path to clipboard</description>
+        <range></range>
+        <patterns>*</patterns>
+        <directories/>
+        <other-files/>
+    </action>
+    <action>
+        <icon>archive-manager</icon>
+        <name>Extract Here</name>
+        <unique-id>1710575157271461-4</unique-id>
+        <command>sh -c "cd %d && bsdtar -xf %f"</command>
+        <description>Extract archive in current directory</description>
+        <range></range>
+        <patterns>*.zip;*.tar;*.tar.gz;*.tar.bz2;*.tar.xz;*.7z;*.rar</patterns>
+        <other-files/>
+    </action>
+    <action>
+        <icon>dialog-password</icon>
+        <name>Open as Root</name>
+        <unique-id>1710575157271461-6</unique-id>
+        <command>pkexec thunar %f</command>
+        <description>Open folder with root privileges</description>
+        <range></range>
+        <patterns>*</patterns>
+        <directories/>
+    </action>
 </actions>
