@@ -38,7 +38,7 @@
         <icon>archive-manager</icon>
         <name>Extract Here</name>
         <unique-id>1710575157271461-4</unique-id>
-        <command>sh -c "cd %d && bsdtar -xf %f"</command>
+        <command>sh -c "cd %d &amp;&amp; bsdtar -xf %f"</command>
         <description>Extract archive in current directory</description>
         <range></range>
         <patterns>*.zip;*.tar;*.tar.gz;*.tar.bz2;*.tar.xz;*.7z;*.rar</patterns>

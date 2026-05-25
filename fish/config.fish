@@ -34,10 +34,10 @@ if status is-interactive
 
     abbr  pi 'paru -S'
     abbr  pu 'paru -Syu'
-    abbr  pc 'paru -Sc'
+    abbr  pc 'paru -Scc'
     abbr  i 'sudo pacman -S'
     abbr  u 'sudo pacman -Syu'
-    abbr  c 'sudo pacman -Sc'
+    abbr  c 'sudo pacman -Scc'
     abbr  r 'reboot'
     abbr  sn 'sudo nano'
     abbr  s 'sudo'
