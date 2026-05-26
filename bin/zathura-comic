@@ -1,0 +1,2 @@
+#!/usr/bin/env fish
+zathura --config-dir ~/.config/zathura-comic $argv

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+REPO="$HOME/.local/share/caelestia"
+
+# go to the repo (or error)
+if ! cd "$REPO"; then
+    notify-send "Caelestia Update" "Repo not found at $REPO!" -u critical
+    exit 1
+fi
+
+# record old commit
+old=$(git rev-parse HEAD 2>/dev/null)
+
+# pull
+git pull origin main
+
+# if updated
+new=$(git rev-parse HEAD 2>/dev/null)
+if [ "$old" != "$new" ]; then
+    notify-send "Caelestia Updated" "Pulled latest changes."
+    hyprctl reload
+else
+    notify-send "Caelestia" "Already up to date."
+fi

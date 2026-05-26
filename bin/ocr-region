@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+TMP_IMG=$(mktemp /tmp/ocr-XXXX.png)
+
+grimblast --freeze save area "$TMP_IMG"
+
+tesseract "$TMP_IMG" stdout -l eng 2>/dev/null | wl-copy
+
+rm "$TMP_IMG"

@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+for cmd in grimblast curl jq xdg-open notify-send wl-copy; do
+    command -v "$cmd" &>/dev/null || { notify-send -u critical "Google Lens" "Missing: $cmd"; exit 1; }
+done
+
+IMAGE_PATH=$(mktemp /tmp/lens-XXXX.png)
+trap 'rm -f "$IMAGE_PATH"' EXIT
+
+if ! grimblast --freeze save area "$IMAGE_PATH"; then
+    notify-send -u normal "Google Lens" "Selection cancelled"
+    exit 0
+fi
+
+[[ ! -s "$IMAGE_PATH" ]] && { notify-send -u critical "Google Lens" "Empty capture"; exit 1; }
+
+# Copy to clipboard immediately as fallback
+wl-copy < "$IMAGE_PATH"
+
+set +e
+uploadResponse=$(curl -sS -f -F "files[]=@$IMAGE_PATH" 'https://uguu.se/upload' 2>&1)
+curlExit=$?
+set -e
+
+if [[ $curlExit -ne 0 ]]; then
+    # Fallback: open Lens manually, image is already in clipboard
+    xdg-open "https://lens.google.com" >/dev/null 2>&1 &
+    notify-send -u normal "Google Lens" "Upload failed — image in clipboard, paste manually"
+    exit 0
+fi
+
+imageLink=$(echo "$uploadResponse" | jq -r '.files[0].url' 2>/dev/null)
+
+if [[ -z "$imageLink" || "$imageLink" == "null" ]]; then
+    xdg-open "https://lens.google.com" >/dev/null 2>&1 &
+    notify-send -u normal "Google Lens" "Parse failed — image in clipboard, paste manually"
+    exit 0
+fi
+
+xdg-open "https://lens.google.com/uploadbyurl?url=${imageLink}" >/dev/null 2>&1
+notify-send "Google Lens" "Opened ✓"
