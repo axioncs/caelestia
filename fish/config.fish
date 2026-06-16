@@ -1,13 +1,13 @@
 if status is-interactive
     # Starship custom prompt
-    starship init fish | source
+    command -v starship &> /dev/null && starship init fish | source
 
     # Direnv + Zoxide
     command -v direnv &> /dev/null && direnv hook fish | source
     command -v zoxide &> /dev/null && zoxide init fish --cmd cd | source
 
     # Better ls
-    alias ls='eza --icons --group-directories-first -1'
+    command -v eza &> /dev/null && alias ls='eza --icons --group-directories-first -1'
 
     # Abbrs
     abbr lg 'lazygit'
